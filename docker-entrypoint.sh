@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+echo "=== Starting Taskcafe on PORT=${PORT:-3333} ==="
 cat > /root/config.yml << EOF
 server:
   rootPath: "/"
