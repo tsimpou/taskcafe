@@ -17,6 +17,7 @@ RUN go run cmd/mage/main.go backend:genFrontend backend:genMigrations backend:bu
 FROM alpine:latest
 WORKDIR /root/
 COPY --from=backend /usr/src/app/dist/taskcafe .
+EXPOSE 3333
 COPY docker-entrypoint.sh /root/docker-entrypoint.sh
 RUN chmod +x /root/docker-entrypoint.sh
 CMD ["/root/docker-entrypoint.sh"]
