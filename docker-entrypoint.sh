@@ -7,15 +7,20 @@ server:
   port: ${PORT:-3333}
   secret: "${SECRET_KEY:-changeme}"
 database:
-  host: "${PGHOST}"
+  host: "${PGHOST:-postgres.railway.internal}"
   port: ${PGPORT:-5432}
-  name: "${PGDATABASE}"
-  user: "${PGUSER}"
+  name: "${PGDATABASE:-railway}"
+  user: "${PGUSER:-postgres}"
   pass: "${PGPASSWORD}"
   sslmode: disable
 redis:
-  addr: "${REDISHOST}:${REDISPORT:-6379}"
+  addr: "${REDISHOST:-redis.railway.internal}:${REDISPORT:-6379}"
   password: "${REDIS_PASSWORD}"
   db: 0
 EOF
+
+echo "=== Config Content: ==="
+cat /root/config.yml
+echo "=== End of Config ==="
+
 exec ./taskcafe web --migrate --config /root/config.yml
