@@ -18,4 +18,4 @@ redis:
   password: "${REDIS_PASSWORD}"
   db: 0
 EOF
-exec ./taskcafe web --migrate
+exec ./taskcafe web --migrate --config /root/config.yml
