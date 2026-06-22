@@ -23,4 +23,4 @@ echo "=== Config Content: ==="
 cat /root/config.yml
 echo "=== End of Config ==="
 
-exec ./taskcafe web --migrate --config /root/config.yml
+exec ./taskcafe --config /root/config.yml web --migrate
